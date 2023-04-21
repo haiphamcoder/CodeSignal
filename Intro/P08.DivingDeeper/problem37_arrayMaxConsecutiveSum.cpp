@@ -30,6 +30,6 @@ int main()
     {
         cin >> inputArray[i];
     }
-    cout << solution(inputArray, k) << endl;
+    cout << solution(inputArray, k ) << endl;
     return 0;
 }
