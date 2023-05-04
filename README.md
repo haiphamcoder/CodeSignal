@@ -16,19 +16,20 @@ Viết hàm trả về tổng của 2 số
 
 ***Mã C++:***
 
+```cpp
+
 int solution(int param1, int param2)
 
 {
 
-**return** param1 + param2;
+    return param1 + param2;
 
 }
+```
 
 ### 2. Century from year
 
-Cho một năm, trả về thế kỷ của nó. Thế kỷ đầu tiên kéo dài từ năm 1 đến
-và bao gồm cả năm 100, thế kỷ thứ hai - từ năm 101 đến và bao gồm cả năm
-200, v.v.
+Cho một năm, trả về thế kỷ của nó. Thế kỷ đầu tiên kéo dài từ năm 1 đến và bao gồm cả năm 100, thế kỷ thứ hai - từ năm 101 đến và bao gồm cả năm 200, v.v.
 
 ***Thuật toán:***
 
@@ -40,13 +41,16 @@ và bao gồm cả năm 100, thế kỷ thứ hai - từ năm 101 đến và bao
 
 ***Mã C++:***
 
+```cpp
+
 int solution(int year)
 
 {
 
-**return** (year+99)/100;
+    return (year+99)/100;
 
 }
+```
 
 ### 3. checkPalindrome
 
