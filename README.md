@@ -134,7 +134,7 @@ Vì vậy, ở bài này, chúng ta có thể sử dụng đệ quy hoặc tìm 
 
 ***Thuật toán:***
 
-<b><u>Sử dụng đệ quy:</u></b>
+***Sử dụng đệ quy:***
 
 S(n):
 
@@ -142,7 +142,7 @@ S(n):
 
 \- B2: Ngược lại, trả về S(n-1) + 4\*(n-1)
 
-<b><u>Không sử dụng đệ quy:</u></b>
+***Không sử dụng đệ quy:***
 
 \- B1: Nhận vào số n
 
@@ -155,271 +155,185 @@ S(n):
 ```cpp
 int solution(int n)
 {
-    return 1 + 2 * n *(n - 1);
+    return 1 + 2 * n * (n - 1);
 }
 ```
 
 ### 6. makeArrayConsecutive2
 
-Ratiorg có statues (các bức tượng) kích thước khác nhau như một món quà
-từ CodeMaster nhân ngày sinh nhật của anh ấy, mỗi bức tượng có kích
-thước nguyên không âm. Vì anh ấy thích làm cho mọi thứ trở nên hoàn hảo
-nên anh ấy muốn sắp xếp chúng từ nhỏ nhất đến lớn nhất sao cho mỗi bức
-tượng sẽ lớn hơn bức tượng trước một số chính xác bằng 1. Anh ta có thể
-cần một số bức tượng bổ sung để có thể thực hiện được điều đó. Giúp anh
-ta tìm ra số lượng tối thiểu các bức tượng bổ sung cần thiết.
+Ratiorg có statues (các bức tượng) kích thước khác nhau như một món quà từ CodeMaster nhân ngày sinh nhật của anh ấy, mỗi bức tượng có kích thước nguyên không âm. Vì anh ấy thích làm cho mọi thứ trở nên hoàn hảo nên anh ấy muốn sắp xếp chúng từ nhỏ nhất đến lớn nhất sao cho mỗi bức tượng sẽ lớn hơn bức tượng trước một số chính xác bằng 1. Anh ta có thể cần một số bức tượng bổ sung để có thể thực hiện được điều đó. Giúp anh ta tìm ra số lượng tối thiểu các bức tượng bổ sung cần thiết.
 
 ***Nhận xét:***
 
-Ta thấy, để Ratiorg sắp xếp được các bức tượng theo đúng tiêu chí mỗi
-bức tượng sẽ lớn hơn bức tượng trước một số chính xác bằng 1, thì anh ấy
-cần phải có tổng cộng (max - min + 1) bức tượng. Trong đó, max và min
-lần lượt là kích thước lớn nhất và nhỏ nhất của các bức tượng mà anh ấy
-đã nhận được từ CodeMaster.
+Ta thấy, để Ratiorg sắp xếp được các bức tượng theo đúng tiêu chí mỗi bức tượng sẽ lớn hơn bức tượng trước một số chính xác bằng 1, thì anh ấy cần phải có tổng cộng (max - min + 1) bức tượng. Trong đó, max và min lần lượt là kích thước lớn nhất và nhỏ nhất của các bức tượng mà anh ấy đã nhận được từ CodeMaster.
 
-Vì vậy, số lượng tối thiểu các bức tượng bổ sung cần thiết là: max -
-min + 1 - số lượng bức tượng anh ấy đã có.
+Vì vậy, số lượng tối thiểu các bức tượng bổ sung cần thiết là: max - min + 1 - số lượng bức tượng anh ấy đã có.
 
 ***Thuật toán:***
 
-\- B1: Nhận vào mảng các số nguyên a là kích thước lần lượt của các bức
-tượng mà anh ấy nhận được
+\- B1: Nhận vào mảng các số nguyên a là kích thước lần lượt của các bức tượng mà anh ấy nhận được
 
-\- B2: Gán maxSize = max(a\[ \]); minSize = min(a\[ \]), size = kích
-thước mảng a
+\- B2: Gán maxSize = max(a\[ \]); minSize = min(a\[ \]), size = kích thước mảng a
 
-\- B3: Gán ketqua = maxSize - minSize + 1 -- size;
+\- B3: Gán ketqua = maxSize - minSize + 1 - size;
 
 \- B4: return ketqua
 
 Mã C++:
 
-int solution(vector\<int\> statues)
-
+```cpp
+int solution(vector<int> statues)
 {
-
-**auto** minmax = minmax_element(statues.begin(), statues.end());
-
-**return** \*minmax.second - \*minmax.first + 1 - statues.size();
-
+    auto minmax = minmax_element(statues.begin(), statues.end());
+    return *minmax.second - *minmax.first + 1 - statues.size();
 }
+```
 
 ### 7. almostIncreasingSequence
 
-Cho một dãy các số nguyên dưới dạng một mảng, hãy xác định xem có thể có
-được một dãy tăng nghiêm ngặt hay không bằng cách loại bỏ không quá một
-phần tử khỏi mảng.
+Cho một dãy các số nguyên dưới dạng một mảng, hãy xác định xem có thể có được một dãy tăng nghiêm ngặt hay không bằng cách loại bỏ không quá một phần tử khỏi mảng.
 
-Lưu ý: trình tự a\[0\], a\[1\], \..., a\[n\] được coi là tăng nghiêm
-ngặt nếu a\[0\] \< a\[1\] \< \... \< a\[n\]. Dãy chỉ chứa một phần tử
-cũng được coi là tăng nghiêm ngặt.
+Lưu ý: trình tự a\[0\], a\[1\], \..., a\[n\] được coi là tăng nghiêm ngặt nếu a\[0\] \< a\[1\] \< \... \< a\[n\]. Dãy chỉ chứa một phần tử cũng được coi là tăng nghiêm ngặt.
 
 ***Nhận xét:***
 
-Ta thấy, dãy chứa 1 phần tử cũng được coi là dãy tăng nghiêm ngặt. Khi
-dãy có 2 phần tử a\[0\], a\[1\] thì xảy ra 2 trường hợp:
+Ta thấy, dãy chứa 1 phần tử cũng được coi là dãy tăng nghiêm ngặt.
 
-1. a\[0\]\<a\[1\] → Dãy tăng nghiêm ngặt
+Khi dãy có 2 phần tử a\[0\], a\[1\] thì xảy ra 2 trường hợp:
 
-2. a\[0\]\>=a\[1\] → Ta chỉ cần loại bỏ 1 trong 2 phần tử sẽ thu được
-    dãy tăng nghiêm ngặt
+1. a\[0\] \< a\[1\] → Dãy tăng nghiêm ngặt
 
-Điều này dẫn tới, khi số lượng phần tử của dãy nhỏ hơn 3 thì luôn thỏa
-mãn yêu cầu đề bài.
+2. a\[0\] \>= a\[1\] → Ta chỉ cần loại bỏ 1 trong 2 phần tử sẽ thu được dãy tăng nghiêm ngặt
+
+Điều này dẫn tới, khi số lượng phần tử của dãy nhỏ hơn 3 thì luôn thỏa mãn yêu cầu đề bài.
 
 Xét dãy số khi số lượng phần tử \>= 3:
 
 Ta dùng count để đếm số cặp phần tử liền kề mà a\[i\] \>= a\[i+1\]
 
-\- Khi dãy có 3 phần tử, thì chỉ có duy nhất 1 trường hợp không thỏa mãn
-yêu cầu đề bài là: a\[0\] \>= a\[1\] \>= a\[2\].
+\- Khi dãy có 3 phần tử, thì chỉ có duy nhất 1 trường hợp không thỏa mãn yêu cầu đề bài là: a\[0\] \>= a\[1\] \>= a\[2\].
 
 \- Khi dãy có 4 phần tử a\[0\], a\[1\], a\[2\], a\[3\]:
 
-1. a\[0\] \< a\[1\]; a\[1\] \< a\[2\]; a\[2\] \< a\[3\] → Dãy tăng
-    nghiêm ngặt (count = 0)
+1. a\[0\] \< a\[1\]; a\[1\] \< a\[2\]; a\[2\] \< a\[3\] → Dãy tăng nghiêm ngặt (count = 0)
 
-2. a\[0\] \< a\[1\]; a\[1\] \< a\[2\]; a\[2\] \>= a\[3\] → Bỏ a\[3\] sẽ
-    thu được dãy tăng nghiêm ngặt (count = 1) hoặc bỏ a\[2\] nếu a\[1\]
-    \< a\[3\] cũng sẽ thu được dãy tăng nghiêm ngặt
+2. a\[0\] \< a\[1\]; a\[1\] \< a\[2\]; a\[2\] \>= a\[3\] → Bỏ a\[3\] sẽ thu được dãy tăng nghiêm ngặt (count = 1) hoặc bỏ a\[2\] nếu a\[1\] \< a\[3\] cũng sẽ thu được dãy tăng nghiêm ngặt
 
-3. a\[0\] \< a\[1\]; a\[1\] \>= a\[2\]; a\[2\] \< a\[3\] → Bỏ a\[1\]
-    (nếu a\[0\] \< a\[2\]) hoặc bỏ a\[2\] (nếu a\[1\] \< a\[3\]) thì sẽ
-    thu được dãy tăng nghiêm ngặt. Còn nếu đồng thời a\[0\] \>= a\[2\]
-    và a\[1\] \>= a\[3\] thì dãy này không thỏa mãn đề bài
+3. a\[0\] \< a\[1\]; a\[1\] \>= a\[2\]; a\[2\] \< a\[3\] → Bỏ a\[1\] (nếu a\[0\] \< a\[2\]) hoặc bỏ a\[2\] (nếu a\[1\] \< a\[3\]) thì sẽ thu được dãy tăng nghiêm ngặt. Còn nếu đồng thời a\[0\] \>= a\[2\] và a\[1\] \>= a\[3\] thì dãy này không thỏa mãn đề bài
 
-4. a\[0\] \< a\[1\]; a\[1\] \>= a\[2\]; a\[2\] \>= a\[3\] → Không thỏa
-    mãn yêu cầu đề bài (count = 2)
+4. a\[0\] \< a\[1\]; a\[1\] \>= a\[2\]; a\[2\] \>= a\[3\] → Không thỏa mãn yêu cầu đề bài (count = 2)
 
-5. a\[0\] \>= a\[1\]; a\[1\] \< a\[2\]; a\[2\] \< a\[3\] → Bỏ a\[0\] sẽ
-    thu được dãy tăng nghiêm ngặt (count = 1)
+5. a\[0\] \>= a\[1\]; a\[1\] \< a\[2\]; a\[2\] \< a\[3\] → Bỏ a\[0\] sẽ thu được dãy tăng nghiêm ngặt (count = 1)
 
-6. a\[0\] \>= a\[1\]; a\[1\] \< a\[2\]; a\[2\] \>= a\[3\] → Không thỏa
-    mãn yêu cầu đề bài (count = 2)
+6. a\[0\] \>= a\[1\]; a\[1\] \< a\[2\]; a\[2\] \>= a\[3\] → Không thỏa mãn yêu cầu đề bài (count = 2)
 
-7. a\[0\] \>= a\[1\]; a\[1\] \>= a\[2\]; a\[2\] \< a\[3\] → Không thỏa
-    mãn yêu cầu đề bài (count = 2)
+7. a\[0\] \>= a\[1\]; a\[1\] \>= a\[2\]; a\[2\] \< a\[3\] → Không thỏa mãn yêu cầu đề bài (count = 2)
 
-8. a\[0\] \>= a\[1\]; a\[1\] \>= a\[2\]; a\[2\] \>= a\[3\] → Không thỏa
-    mãn yêu cầu đề bài (count = 3)
+8. a\[0\] \>= a\[1\]; a\[1\] \>= a\[2\]; a\[2\] \>= a\[3\] → Không thỏa mãn yêu cầu đề bài (count = 3)
 
 \- Khi dãy có 5, 6,\...phần tử thì cũng tương tự với TH 4 phần tử
 
-Ở đây, ta dùng biến count để đếm số cặp phần tử liên tiếp thỏa mãn
-a\[i\] \>= a\[i+1\]. Duyệt dãy số từ đầu đến cuối, nếu count \> 1 hoặc
-tồn tại trường hợp (a\[i\] \>= a\[i+1\] && a\[i-1\] \>= a\[i+1\] &&
-a\[i\] \>= a\[i+2\]) thì dãy số không thỏa mãn yêu cầu của đề bài.
+Ở đây, ta dùng biến count để đếm số cặp phần tử liên tiếp thỏa mãn a\[i\] \>= a\[i+1\]. Duyệt dãy số từ đầu đến cuối, nếu count \> 1 hoặc tồn tại trường hợp (a\[i\] \>= a\[i+1\] && a\[i-1\] \>= a\[i+1\] && a\[i\] \>= a\[i+2\]) thì dãy số không thỏa mãn yêu cầu của đề bài.
 
 ***Thuật toán:***
 
-\- B1: Nhận vào dãy số a
+- B1: Nhận vào dãy số a
 
-\- B2: Gán size := a.size(), count:=0
+- B2: Gán size := a.size(), count:=0
 
-\- B3: Nếu size \< 3 thì trả về false và kết thúc chương trình. Nếu
-không, chuyển sang bước 4
+- B3: Nếu size \< 3 thì trả về false và kết thúc chương trình. Nếu không, chuyển sang bước 4
 
-\- B4: for i = 0 to size-1 then:
+- B4: for i = 0 to size-1 then:
 
-Nếu a\[i\]\>=a\[i+1\] thì count:=count+1;
+    Nếu a\[i\]\>=a\[i+1\] thì count:=count+1;
 
-Nếu count\>1 thì trả về false và kết thúc chương trình.
+    Nếu count\>1 thì trả về false và kết thúc chương trình.
 
-Nếu i\>0 và i\<size-2 và a\[i\]\>=a\[i+2\] và a\[i-1\]\>=a\[i+1\] thì
-trả về false và kết thúc chương trình.
+    Nếu i\>0 và i\<size-2 và a\[i\]\>=a\[i+2\] và a\[i-1\]\>=a\[i+1\] thì trả về false và kết thúc chương trình.
 
-\- B5: Trả về true và kết thúc chương trình.
+- B5: Trả về true và kết thúc chương trình.
 
 ***Mã C++:***
 
-bool solution(vector\<int\> sequence)
-
+```cpp
+bool solution(vector<int> sequence)
 {
-
-int size = sequence.size();
-
-**if** (size \< 3)
-
-{
-
-**return** false;
-
+    int size = sequence.size();
+    if (size < 3)
+    {
+        return false;
+    }
+    int count = 0;
+    for (int i = 0; i < size - 1; i++)
+    {
+        if (sequence[i] >= sequence[i + 1])
+        {
+            count++;
+            if (count > 1)
+            {
+                return false;
+            }
+            if (i > 0 && i < size - 2 && sequence[i] >= sequence[i + 2] && sequence[i - 1] >= sequence[i + 1])
+            {
+                return false;
+            }
+        }
+    }
+    return true;
 }
-
-int count = 0;
-
-**for** (int i = 0; i \< size - 1; i++)
-
-{
-
-**if** (sequence\[i\] \>= sequence\[i + 1\])
-
-{
-
-count++;
-
-**if** (count \> 1)
-
-{
-
-**return** false;
-
-}
-
-**if** (i \> 0 && i \< size - 2 && sequence\[i\] \>= sequence\[i + 2\]
-&& sequence\[i - 1\] \>= sequence\[i + 1\])
-
-{
-
-**return** false;
-
-}
-
-}
-
-}
-
-**return** true;
-
-}
+```
 
 ### 8. matrixElementsSum
 
-Sau khi trở nên nổi tiếng, CodeBots quyết định cùng nhau chuyển đến một
-tòa nhà mới. Mỗi phòng có một mức giá khác nhau, và một số phòng miễn
-phí, nhưng có tin đồn rằng tất cả các phòng miễn phí đều bị ma ám! Vì
-CodeBots khá mê tín nên họ từ chối ở trong bất kỳ phòng miễn phí nào
-hoặc bất kỳ phòng nào bên dưới bất kỳ phòng miễn phí nào .
+Sau khi trở nên nổi tiếng, CodeBots quyết định cùng nhau chuyển đến một tòa nhà mới. Mỗi phòng có một mức giá khác nhau, và một số phòng miễn phí, nhưng có tin đồn rằng tất cả các phòng miễn phí đều bị ma ám! Vì CodeBots khá mê tín nên họ từ chối ở trong bất kỳ phòng miễn phí nào hoặc bất kỳ phòng nào bên dưới bất kỳ phòng miễn phí nào .
 
-Được cho matrix, một ma trận số nguyên hình chữ nhật, trong đó mỗi giá
-trị đại diện cho giá phòng, nhiệm vụ của bạn là trả về tổng số tiền của
-tất cả các phòng phù hợp với CodeBots (tức là: cộng tất cả các giá trị
-không xuất hiện bên dưới một giá trị 0).
+Được cho matrix, một ma trận số nguyên hình chữ nhật, trong đó mỗi giá trị đại diện cho giá phòng, nhiệm vụ của bạn là trả về tổng số tiền của tất cả các phòng phù hợp với CodeBots (tức là: cộng tất cả các giá trị không xuất hiện bên dưới một giá trị 0).
 
 Ví dụ: với trường hợp bên dưới thì solution(matrix) = 5 + 1 + 2 = 9.
 
-![](vertopal_f733b98e8efb4b38a9c300c2ecdde768/media/image2.png){width="4.05in"
-height="3.0416666666666665in"}
+![ghost](/media/image2.png)
 
 ***Thuật toán:***
 
-\- B1: Nhận vào một mảng 2 chiều A có kích thước (row x col)
+- B1: Nhận vào một mảng 2 chiều A có kích thước (row x col)
 
-\- B2: Gán sum := 0
+- B2: Gán sum := 0
 
-\- B3: for j=0 to col-1 then:
+- B3: for j=0 to col-1 then:
 
-for i = 0 to row-1 then:
+    for i = 0 to row-1 then:
 
-Nếu A\[i\]\[j\] \> 0 thì sum := sum + a\[i\]\[j\];
+    Nếu A\[i\]\[j\] \> 0 thì sum := sum + a\[i\]\[j\];
 
-Ngược lại, break;
+    Ngược lại, break;
 
-\- B4: return sum và kết thúc.
+- B4: return sum và kết thúc.
 
 ***Mã C++:***
 
-int solution(vector\<vector\<int\>\> matrix)
-
+```cpp
+int solution(vector<vector<int>> matrix)
 {
-
-int row = matrix.size();
-
-int col = matrix\[0\].size();
-
-int sum = 0;
-
-**for** (int j = 0; j \< col; j++)
-
-{
-
-**for** (int i = 0; i \< row; i++)
-
-{
-
-**if** (matrix\[i\]\[j\] != 0)
-
-{
-
-sum += matrix\[i\]\[j\];
-
+    int row = matrix.size();
+    int col = matrix[0].size();
+    int sum = 0;
+    for (int j = 0; j < col; j++)
+    {
+        for (int i = 0; i < row; i++)
+        {
+            if (matrix[i][j] != 0)
+            {           
+                sum += matrix[i][j];
+            }
+            else
+            {
+                break;
+            }
+        }
+    }
+    return sum;
 }
-
-**else**
-
-{
-
-**break**;
-
-}
-
-}
-
-}
-
-**return** sum;
-
-}
+```
 
 ## Smooth Sailing
 
