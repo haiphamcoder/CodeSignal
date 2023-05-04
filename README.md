@@ -17,13 +17,9 @@ Viết hàm trả về tổng của 2 số
 ***Mã C++:***
 
 ```cpp
-
 int solution(int param1, int param2)
-
 {
-
     return param1 + param2;
-
 }
 ```
 
@@ -42,20 +38,15 @@ Cho một năm, trả về thế kỷ của nó. Thế kỷ đầu tiên kéo d�
 ***Mã C++:***
 
 ```cpp
-
 int solution(int year)
-
 {
-
-    return (year+99)/100;
-
+    return (year + 99 ) / 100;
 }
 ```
 
 ### 3. checkPalindrome
 
-Cho một chuỗi, hãy kiểm tra xem đó có phải là palindrome (đối xứng)
-không?
+Cho một chuỗi, hãy kiểm tra xem đó có phải là palindrome (đối xứng) không?
 
 ***Thuật toán:***
 
@@ -65,29 +56,24 @@ không?
 
 \- B3: Đảo ngược chuỗi str
 
-\- B4: Nếu str giống với inputString, thì kết luận inputString là
-palindrome. Ngược lại thì không.
+\- B4: Nếu str giống với inputString, thì kết luận inputString là palindrome. Ngược lại thì không.
 
 ***Mã C++:***
 
+```cpp
 bool solution(string inputString)
-
 {
-
-string str = inputString;
-
-reverse(str.begin(), str.end());
-
-**return** str==inputString;
-
+    string str = inputString;
+    reverse(str.begin(), str.end());
+    return str == inputString;
 }
+```
 
 ## Edge of the Ocean
 
 ### 4. AdjacentElementsProduct
 
-Cho một mảng các số nguyên, tìm cặp phần tử liền kề có tích lớn nhất và
-trả về tích đó.
+Cho một mảng các số nguyên, tìm cặp phần tử liền kề có tích lớn nhất và trả về tích đó.
 
 ***Thuật toán:***
 
@@ -103,54 +89,41 @@ Gán largestProduct := max(largestProduct, a\[i\]\*a\[i-1\]);
 
 ***Mã C++:***
 
-int solution(vector\<int\> inputArray)
-
+```cpp
+int solution(vector<int> inputArray)
 {
-
-int largestProduct = INT32_MIN;
-
-**for** (int i = 1; i \< inputArray.size(); i++)
-
-{
-
-largestProduct = max(largestProduct, inputArray\[i\] \* inputArray\[i -
-1\]);
-
+    int largestProduct = INT32_MIN;
+    for (int i = 1; i < inputArray.size(); i++)
+    {
+        largestProduct = max(largestProduct, inputArray[i] * inputArray[i - 1]);
+    }
+    return largestProduct;
 }
-
-**return** largestProduct;
-
-}
+```
 
 ### 5. shapeArea
 
-Dưới đây chúng ta sẽ định nghĩa một n-đa giác thú vị. Nhiệm vụ của bạn
-là tìm diện tích của một đa giác cho một n.
+Dưới đây chúng ta sẽ định nghĩa một n-đa giác thú vị. Nhiệm vụ của bạn là tìm diện tích của một đa giác cho một n.
 
-Một 1-đa giác đều là hình vuông có cạnh bằng chiều dài 1. Một n-đa giác
-thú vị thu được bằng cách lấy (n-1)-đa giác thú vị và nối thêm 1-đa giác
-thú vị vào vành của nó, cạnh nhau. Bạn có thể nhìn thấy 1-, 2-, 3- Và
-4-đa giác thú vị trong hình dưới đây.
+Một 1-đa giác đều là hình vuông có cạnh bằng chiều dài 1. Một n-đa giác thú vị thu được bằng cách lấy (n-1)-đa giác thú vị và nối thêm 1-đa giác thú vị vào vành của nó, cạnh nhau. Bạn có thể nhìn thấy 1-, 2-, 3- Và 4-đa giác thú vị trong hình dưới đây.
 
-![](vertopal_f733b98e8efb4b38a9c300c2ecdde768/media/image1.png){width="6.695138888888889in"
-height="3.2576388888888888in"}
+![polygone](/media/image1.png)
 
 ***Nhận xét:***
 
 Ta thấy, diện tích của 1-đa giác thú vị bằng 1 ô vuông.
 
-2-đa giác thú vị bằng 5 ô vuông, hay bằng 1-đa giác thú vị + 4 ô vuông
+- 2-đa giác thú vị bằng 5 ô vuông, hay bằng 1-đa giác thú vị + 4 ô vuông
 
-3-đa giác thú vị bằng 13 ô vuông, hay bằng 2-đa giác thú vị + 8 ô vuông
+- 3-đa giác thú vị bằng 13 ô vuông, hay bằng 2-đa giác thú vị + 8 ô vuông
 
-4-đa giác thú vị bằng 25 ô vuông, hay bằng 3-đa giác thú vị + 12 ô vuông
+- 4-đa giác thú vị bằng 25 ô vuông, hay bằng 3-đa giác thú vị + 12 ô vuông
 
-...
+- ...
 
-n-đa giác thú vị bằng (n-1)-đa giác thú vị + 4\*(n-1) ô vuông
+- n-đa giác thú vị bằng (n-1)-đa giác thú vị + 4\*(n-1) ô vuông
 
-Vì vậy, ở bài này, chúng ta có thể sử dụng đệ quy hoặc tìm ra công thức
-tổng quát cho diện tích của n-đa giác thú vị.
+Vì vậy, ở bài này, chúng ta có thể sử dụng đệ quy hoặc tìm ra công thức tổng quát cho diện tích của n-đa giác thú vị.
 
 Đặt S(n) là diện tích của n-đa giác thú vị
 
@@ -161,15 +134,15 @@ tổng quát cho diện tích của n-đa giác thú vị.
 
 ***Thuật toán:***
 
-*[Sử dụng đệ quy:]{.underline}*
+<b><u>Sử dụng đệ quy:</u></b>
 
 S(n):
 
-Nếu n=1, thì trả về 1.
+\- B1: Nếu n=1, thì trả về 1.
 
-Ngược lại, trả về S(n-1) + 4\*(n-1)
+\- B2: Ngược lại, trả về S(n-1) + 4\*(n-1)
 
-*[Không dùng đệ quy:]{.underline}*
+<b><u>Không sử dụng đệ quy:</u></b>
 
 \- B1: Nhận vào số n
 
@@ -179,13 +152,12 @@ Ngược lại, trả về S(n-1) + 4\*(n-1)
 
 ***Mã C++:***
 
+```cpp
 int solution(int n)
-
 {
-
-**return** 1 + 2\*n\*(n-1);
-
+    return 1 + 2 * n *(n - 1);
 }
+```
 
 ### 6. makeArrayConsecutive2
 
@@ -247,9 +219,9 @@ cũng được coi là tăng nghiêm ngặt.
 Ta thấy, dãy chứa 1 phần tử cũng được coi là dãy tăng nghiêm ngặt. Khi
 dãy có 2 phần tử a\[0\], a\[1\] thì xảy ra 2 trường hợp:
 
-1.  a\[0\]\<a\[1\] → Dãy tăng nghiêm ngặt
+1. a\[0\]\<a\[1\] → Dãy tăng nghiêm ngặt
 
-2.  a\[0\]\>=a\[1\] → Ta chỉ cần loại bỏ 1 trong 2 phần tử sẽ thu được
+2. a\[0\]\>=a\[1\] → Ta chỉ cần loại bỏ 1 trong 2 phần tử sẽ thu được
     dãy tăng nghiêm ngặt
 
 Điều này dẫn tới, khi số lượng phần tử của dãy nhỏ hơn 3 thì luôn thỏa
@@ -264,31 +236,31 @@ yêu cầu đề bài là: a\[0\] \>= a\[1\] \>= a\[2\].
 
 \- Khi dãy có 4 phần tử a\[0\], a\[1\], a\[2\], a\[3\]:
 
-1.  a\[0\] \< a\[1\]; a\[1\] \< a\[2\]; a\[2\] \< a\[3\] → Dãy tăng
+1. a\[0\] \< a\[1\]; a\[1\] \< a\[2\]; a\[2\] \< a\[3\] → Dãy tăng
     nghiêm ngặt (count = 0)
 
-2.  a\[0\] \< a\[1\]; a\[1\] \< a\[2\]; a\[2\] \>= a\[3\] → Bỏ a\[3\] sẽ
+2. a\[0\] \< a\[1\]; a\[1\] \< a\[2\]; a\[2\] \>= a\[3\] → Bỏ a\[3\] sẽ
     thu được dãy tăng nghiêm ngặt (count = 1) hoặc bỏ a\[2\] nếu a\[1\]
     \< a\[3\] cũng sẽ thu được dãy tăng nghiêm ngặt
 
-3.  a\[0\] \< a\[1\]; a\[1\] \>= a\[2\]; a\[2\] \< a\[3\] → Bỏ a\[1\]
+3. a\[0\] \< a\[1\]; a\[1\] \>= a\[2\]; a\[2\] \< a\[3\] → Bỏ a\[1\]
     (nếu a\[0\] \< a\[2\]) hoặc bỏ a\[2\] (nếu a\[1\] \< a\[3\]) thì sẽ
     thu được dãy tăng nghiêm ngặt. Còn nếu đồng thời a\[0\] \>= a\[2\]
     và a\[1\] \>= a\[3\] thì dãy này không thỏa mãn đề bài
 
-4.  a\[0\] \< a\[1\]; a\[1\] \>= a\[2\]; a\[2\] \>= a\[3\] → Không thỏa
+4. a\[0\] \< a\[1\]; a\[1\] \>= a\[2\]; a\[2\] \>= a\[3\] → Không thỏa
     mãn yêu cầu đề bài (count = 2)
 
-5.  a\[0\] \>= a\[1\]; a\[1\] \< a\[2\]; a\[2\] \< a\[3\] → Bỏ a\[0\] sẽ
+5. a\[0\] \>= a\[1\]; a\[1\] \< a\[2\]; a\[2\] \< a\[3\] → Bỏ a\[0\] sẽ
     thu được dãy tăng nghiêm ngặt (count = 1)
 
-6.  a\[0\] \>= a\[1\]; a\[1\] \< a\[2\]; a\[2\] \>= a\[3\] → Không thỏa
+6. a\[0\] \>= a\[1\]; a\[1\] \< a\[2\]; a\[2\] \>= a\[3\] → Không thỏa
     mãn yêu cầu đề bài (count = 2)
 
-7.  a\[0\] \>= a\[1\]; a\[1\] \>= a\[2\]; a\[2\] \< a\[3\] → Không thỏa
+7. a\[0\] \>= a\[1\]; a\[1\] \>= a\[2\]; a\[2\] \< a\[3\] → Không thỏa
     mãn yêu cầu đề bài (count = 2)
 
-8.  a\[0\] \>= a\[1\]; a\[1\] \>= a\[2\]; a\[2\] \>= a\[3\] → Không thỏa
+8. a\[0\] \>= a\[1\]; a\[1\] \>= a\[2\]; a\[2\] \>= a\[3\] → Không thỏa
     mãn yêu cầu đề bài (count = 3)
 
 \- Khi dãy có 5, 6,\...phần tử thì cũng tương tự với TH 4 phần tử
@@ -1102,9 +1074,9 @@ tạo thành một palindrome hay không?
 
 Một chuỗi là palindrome sẽ có đặc điểm:
 
--   TH1: Số lượng ký tự mỗi loại đều chẵn.
+- TH1: Số lượng ký tự mỗi loại đều chẵn.
 
--   TH2: Nếu có số lượng ký tự lẻ, thì chỉ tồn tại duy nhất một loại ký
+- TH2: Nếu có số lượng ký tự lẻ, thì chỉ tồn tại duy nhất một loại ký
     tự đó có số lượng lẻ, và nó phân bổ ở chính giữa palindrome.
 
 Vì vậy, ta chỉ cần đếm số loại ký tự khác nhau có số lượng lẻ.
@@ -1900,13 +1872,13 @@ solution(deposit, rate, threshold) = 3.
 Mỗi năm số tiền trong tài khoản của bạn tăng thêm 20%. Vì vậy, trong
 suốt nhiều năm, số dư của bạn sẽ là:
 
--   năm 0: 100;
+- năm 0: 100;
 
--   năm 1: 120;
+- năm 1: 120;
 
--   năm 2: 144;
+- năm 2: 144;
 
--   năm 3: 172.8.
+- năm 3: 172.8.
 
 Như vậy, sẽ mất 3 năm để số dư của bạn vượt qua threshold, vì vậy câu
 trả lời là 3.
@@ -1970,19 +1942,19 @@ Nếu có nhiều câu trả lời, hãy xuất câu trả lời nhỏ nhất .
 
 Với a = \[2, 4, 7\], đầu ra phải là solution(a) = 4.
 
--   vì x = 2, giá trị sẽ là abs(2 - 2) + abs(4 - 2) + abs(7 - 2) = 7.
+- vì x = 2, giá trị sẽ là abs(2 - 2) + abs(4 - 2) + abs(7 - 2) = 7.
 
--   vì x = 4, giá trị sẽ là abs(2 - 4) + abs(4 - 4) + abs(7 - 4) = 5.
+- vì x = 4, giá trị sẽ là abs(2 - 4) + abs(4 - 4) + abs(7 - 4) = 5.
 
--   vì x = 7, giá trị sẽ là abs(2 - 7) + abs(4 - 7) + abs(7 - 7) = 8.
+- vì x = 7, giá trị sẽ là abs(2 - 7) + abs(4 - 7) + abs(7 - 7) = 8.
 
 Giá trị nhỏ nhất có thể là khi x = 4, vì vậy câu trả lời là 4.
 
 Với a = \[2, 3\], đầu ra phải là solution(a) = 2.
 
--   vì x = 2, giá trị sẽ là abs(2 - 2) + abs(3 - 2) = 1.
+- vì x = 2, giá trị sẽ là abs(2 - 2) + abs(3 - 2) = 1.
 
--   vì x = 3, giá trị sẽ là abs(2 - 3) + abs(3 - 3) = 1.
+- vì x = 3, giá trị sẽ là abs(2 - 3) + abs(3 - 3) = 1.
 
 Bởi vì có một sự ràng buộc, nhỏ nhất x giữa x = 2 Và x = 3 là câu trả
 lời.
@@ -2006,28 +1978,28 @@ a\[i-2\] + ... + a\[0\])
 
 ***Xét 3TH:***
 
--   TH1: i = (n-1)/2
+- TH1: i = (n-1)/2
 
-    -   S1 = (a\[n-1\] + a\[n-2\] + ... + a\[(n-1)/2 + 1\] + 0 --
+  - S1 = (a\[n-1\] + a\[n-2\] + ... + a\[(n-1)/2 + 1\] + 0 --
         (a\[(n-1)/2 -1\] + a\[(n-1)/2 -- 2\] + ... + a\[0\])
 
--   TH2: i \> (n-1)/2
+- TH2: i \> (n-1)/2
 
-    -   S2 = (a\[n-1\] + a\[n-2\] + ... + a\[i+1\]) + 0 -- (a\[i-1\]
+  - S2 = (a\[n-1\] + a\[n-2\] + ... + a\[i+1\]) + 0 -- (a\[i-1\]
         a\[i-2\] + ... + a\[(n-1)/2\] + ... + a\[0\]) + 2\*(i --
         (n-1)/2)\*a\[i\]
 
-    -   Trong đó, (i -- (n-1)/2) là số phần tử từ vị trí (n-1)/2 đến vị
+  - Trong đó, (i -- (n-1)/2) là số phần tử từ vị trí (n-1)/2 đến vị
         trí (i-1). Mà a\[i\] lớn hơn các phần tử từ a\[i-1\] đến
         a\[(n-1)/2\] nên suy ra: S2 \> S1
 
--   TH3: i \< (n-1)/2
+- TH3: i \< (n-1)/2
 
-    -   S3 = (a\[n-1\] + a\[n-2\] + ... + a\[(n-1)/2\] + ... +
+  - S3 = (a\[n-1\] + a\[n-2\] + ... + a\[(n-1)/2\] + ... +
         a\[i+1\]) + 0 -- (a\[i-1\] a\[i-2\] + ... + a\[0\]) + 2\*(i --
         (n-1)/2)\*a\[i\]
 
-    -   Dễ thấy, S3 \> S1
+  - Dễ thấy, S3 \> S1
 
 Từ 3TH trên, ta kết luận: chọn x = a\[(n-1)/2\] thì sẽ thỏa mãn yêu cầu
 của đề bài làm cho S có giá trị nhỏ nhất.
@@ -2373,13 +2345,13 @@ Với inputArray = \[2, 3, 5, 1, 6\] Và k = 2, đầu ra phải là
 
 Tất cả các tổng có thể có của 2các phần tử liên tiếp là:
 
--   2 + 3 = 5;
+- 2 + 3 = 5;
 
--   3 + 5 = 8;
+- 3 + 5 = 8;
 
--   5 + 1 = 6;
+- 5 + 1 = 6;
 
--   1 + 6 = 7.
+- 1 + 6 = 7.
 
 Như vậy, câu trả lời là 8.
 
@@ -2530,15 +2502,15 @@ món, tức là không được mang 2 món đồ thứ nhất và 2 món đồ 
 
 ***Ví dụ***
 
--   Với value1 = 10, weight1 = 5, value2 = 6, weight2 = 4, Và maxW = 8,
+- Với value1 = 10, weight1 = 5, value2 = 6, weight2 = 4, Và maxW = 8,
     đầu ra phải là **solution(value1, weight1, value2, weight2, maxW) =
     10.** Bạn chỉ có thể mang vật phẩm đầu tiên.
 
--   Với value1 = 10, weight1 = 5, value2 = 6, weight2 = 4, Và maxW = 9,
+- Với value1 = 10, weight1 = 5, value2 = 6, weight2 = 4, Và maxW = 9,
     đầu ra phải là **solution(value1, weight1, value2, weight2, maxW) =
     16.** Bạn đủ khỏe để mang theo cả hai món đồ bên mình.
 
--   Với value1 = 5, weight1 = 3, value2 = 7, weight2 = 4, Và maxW = 6,
+- Với value1 = 5, weight1 = 3, value2 = 7, weight2 = 4, Và maxW = 6,
     đầu ra phải là ***solution(value1, weight1, value2, weight2, maxW) =
     7***. Bạn không thể lấy cả hai vật phẩm, nhưng bạn có thể lấy bất kỳ
     vật phẩm nào trong số chúng.
@@ -2663,15 +2635,15 @@ Cho một số nguyên, tìm bậc chữ số của nó.
 
 ***Ví dụ***
 
--   Với n = 5, đầu ra phải là **solution(n) = 0;**
+- Với n = 5, đầu ra phải là **solution(n) = 0;**
 
--   Với n = 100, đầu ra phải là **solution(n) = 1.**
+- Với n = 100, đầu ra phải là **solution(n) = 1.**
 
-    -   1 + 0 + 0 = 1.
+  - 1 + 0 + 0 = 1.
 
--   Với n = 91, đầu ra phải là **solution(n) = 2**.
+- Với n = 91, đầu ra phải là **solution(n) = 2**.
 
-    -   9 + 1 = 10 → 1 + 0 = 1.
+  - 9 + 1 = 10 → 1 + 0 = 1.
 
 ***Thuật toán:***
 
@@ -2769,13 +2741,13 @@ height="2.9652777777777777in"}
 
 ***Ví dụ***
 
--   Với bishop = \"a1\"Và pawn = \"c3\", đầu ra phải là
+- Với bishop = \"a1\"Và pawn = \"c3\", đầu ra phải là
     **solution(bishop, pawn) = true**.
 
 ![](vertopal_f733b98e8efb4b38a9c300c2ecdde768/media/image6.png){width="2.9756944444444446in"
 height="2.9756944444444446in"}
 
--   Với bishop = \"h1\"Và pawn = \"h3\", đầu ra phải là
+- Với bishop = \"h1\"Và pawn = \"h3\", đầu ra phải là
     **solution(bishop, pawn) = false**
 
 ![](vertopal_f733b98e8efb4b38a9c300c2ecdde768/media/image7.png){width="2.8715277777777777in"
@@ -2818,22 +2790,22 @@ Lưu ý bức thư đó không có chữ cái nào trước a
 
 ***Ví dụ***
 
--   Với inputString = \"bbbaacdafe\", đầu ra phải là
+- Với inputString = \"bbbaacdafe\", đầu ra phải là
     solution(inputString) = true.
 
-    -   Chuỗi này chứa 3a, 3b, 1c, 1d, 1e, và 1f, do đó, vì không có chữ
+  - Chuỗi này chứa 3a, 3b, 1c, 1d, 1e, và 1f, do đó, vì không có chữ
         cái nào xuất hiện nhiều hơn chữ cái trước nên chuỗi này được coi
         là đẹp.
 
--   Với inputString = \"aabbb\", đầu ra phải là solution(inputString) =
+- Với inputString = \"aabbb\", đầu ra phải là solution(inputString) =
     false.
 
-    -   Vì có b xuất hiện nhiều lần hơn a chuỗi này không đẹp.
+  - Vì có b xuất hiện nhiều lần hơn a chuỗi này không đẹp.
 
--   Với inputString = \"bbc\", đầu ra phải là solution(inputString) =
+- Với inputString = \"bbc\", đầu ra phải là solution(inputString) =
     false.
 
-    -   Mặc dù có nhiều b hơn c, chuỗi này không đẹp vì không có a, vì
+  - Mặc dù có nhiều b hơn c, chuỗi này không đẹp vì không có a, vì
         vậy có nhiều b hơn a.
 
 ***Thuật toán:***
@@ -2897,10 +2869,10 @@ Cho một địa chỉ email hợp lệ, tìm phần tên miền của nó.
 
 ***Ví dụ***
 
--   Với address = \"prettyandsimple@example.com\", đầu ra phải là
+- Với address = \"prettyandsimple@example.com\", đầu ra phải là
     solution(address) = \"example.com\";
 
--   Với address = \"fully-qualified-domain@codesignal.com\", đầu ra phải
+- Với address = \"fully-qualified-domain@codesignal.com\", đầu ra phải
     là solution(address) = \"codesignal.com\".
 
 ***Thuật toán:***
@@ -3017,17 +2989,17 @@ Như vậy, chỉ 2 ứng cử viên có thể giành chiến thắng (thứ hai
 
 ***Nhận xét:***
 
--   Khi k = 0:
+- Khi k = 0:
 
-    -   Có nhiều người (\>1) có cùng số phiếu bầu lớn nhất → Không có ai
+  - Có nhiều người (\>1) có cùng số phiếu bầu lớn nhất → Không có ai
         chiến thắng (return 0)
 
-    -   Có duy nhất một người có số phiếu lớn nhất → Người đó chiến
+  - Có duy nhất một người có số phiếu lớn nhất → Người đó chiến
         thắng (return 1)
 
--   Khi k \> 0:
+- Khi k \> 0:
 
-    -   Ta giả sử toàn bộ k phiếu đó bầu lần lượt cho từng người. Nếu số
+  - Ta giả sử toàn bộ k phiếu đó bầu lần lượt cho từng người. Nếu số
         phiếu của một người cộng thêm k mà lớn hơn max hiện tại, thi
         người đó chiến thắng. Vì vậy chỉ cần đếm số người có số phiếu +
         k \> max.
@@ -3119,13 +3091,13 @@ Nhiệm vụ của bạn là kiểm tra theo chuỗi đã cho inputString nó c�
 
 ***Ví dụ***
 
--   Với inputString = \"00-1B-63-84-45-E6\", đầu ra phải là
+- Với inputString = \"00-1B-63-84-45-E6\", đầu ra phải là
     solution(inputString) = true;
 
--   Với inputString = \"Z1-1B-63-84-45-E6\", đầu ra phải là
+- Với inputString = \"Z1-1B-63-84-45-E6\", đầu ra phải là
     solution(inputString) = false;
 
--   Với inputString = \"not a MAC-48 address\", đầu ra phải là
+- Với inputString = \"not a MAC-48 address\", đầu ra phải là
     solution(inputString) = false
 
 ***Thuật toán:***
@@ -3209,9 +3181,9 @@ Xác định xem ký tự đã cho có phải là một chữ số hay không.
 
 ***Ví dụ***
 
--   Với symbol = \'0\', đầu ra phải là solution(symbol) = true;
+- Với symbol = \'0\', đầu ra phải là solution(symbol) = true;
 
--   Với symbol = \'-\', đầu ra phải là solution(symbol) = false.
+- Với symbol = \'-\', đầu ra phải là solution(symbol) = false.
 
 ***Nhận xét:***
 
@@ -3404,9 +3376,9 @@ chính xác một chữ số của số đã cho.
 
 Ví dụ
 
--   Với n = 152, đầu ra phải là solution(n) = 52;
+- Với n = 152, đầu ra phải là solution(n) = 52;
 
--   Với n = 1001, đầu ra phải là solution(n) = 101.
+- Với n = 1001, đầu ra phải là solution(n) = 101.
 
 ***Thuật toán:***
 
@@ -3557,11 +3529,11 @@ Kiểm tra xem chuỗi đã cho có phải là biểu diễn thời gian chính 
 
 ***Ví dụ***
 
--   Với time = \"13:58\", đầu ra phải là solution(time) = true;
+- Với time = \"13:58\", đầu ra phải là solution(time) = true;
 
--   Với time = \"25:51\", đầu ra phải là solution(time) = false;
+- Với time = \"25:51\", đầu ra phải là solution(time) = false;
 
--   Với time = \"02:76\", đầu ra phải là solution(time) = false.
+- Với time = \"02:76\", đầu ra phải là solution(time) = false.
 
 ***Thuật toán:***
 
@@ -3777,9 +3749,9 @@ vậy, hãy trả về -1.
 
 ***Ví dụ***
 
--   Với product = 12, đầu ra phải là solution(product) = 26;
+- Với product = 12, đầu ra phải là solution(product) = 26;
 
--   Với product = 19, đầu ra phải là solution(product) = -1.
+- Với product = 19, đầu ra phải là solution(product) = -1.
 
 ***Thuật toán:***
 
@@ -3883,13 +3855,13 @@ Với names = \[\"doc\", \"doc\", \"image\", \"doc(1)\", \"doc\"\], đầu ra
 phải là solution(names) = \[\"doc\", \"doc(1)\", \"image\",
 \"doc(1)(1)\", \"doc(2)\"\].
 
--   Từ names\[0\] = \"doc\"Và names\[1\] = \"doc\", cập nhật names\[1\]
+- Từ names\[0\] = \"doc\"Và names\[1\] = \"doc\", cập nhật names\[1\]
     = \"doc(1)\"
 
--   Từ names\[1\] = \"doc(1)\"Và names\[3\] = \"doc(1)\", cập nhật
+- Từ names\[1\] = \"doc(1)\"Và names\[3\] = \"doc(1)\", cập nhật
     names\[3\] = \"doc(1)(1)\"
 
--   Từ names\[0\] = \"doc\", names\[1\] = \"doc(1)\", Và names\[4\] =
+- Từ names\[0\] = \"doc\", names\[1\] = \"doc(1)\", Và names\[4\] =
     \"doc\", cập nhật names\[4\] = \"doc(2)\"
 
 ***Thuật toán:***
@@ -4442,11 +4414,11 @@ int solution(int nCols, int nRows, int col, int row)
 
 Cho divisor và một bound, tìm số nguyên n lớn nhất sao cho:
 
--   n chia hết cho divisor.
+- n chia hết cho divisor.
 
--   n nhỏ hơn hoặc bằng bound.
+- n nhỏ hơn hoặc bằng bound.
 
--   n lớn hơn 0.
+- n lớn hơn 0.
 
 Nó được đảm bảo rằng một số như vậy tồn tại.
 
@@ -4528,14 +4500,14 @@ dạng hh:mm Sẽ hiển thị.
 
 ***Ví dụ***
 
--   Với n = 240, đầu ra phải là solution(n) = 4.
+- Với n = 240, đầu ra phải là solution(n) = 4.
 
-    -   Từ 240 phút đã trôi qua, thời gian hiện tại là 04:00. Tổng các
+  - Từ 240 phút đã trôi qua, thời gian hiện tại là 04:00. Tổng các
         chữ số bằng 0 + 4 + 0 + 0 = 4, đó là câu trả lời.
 
--   Với n = 808, đầu ra phải là solution(n) = 14.
+- Với n = 808, đầu ra phải là solution(n) = 14.
 
-    -   808 phút có nghĩa là bây giờ nó là 13:28, vì vậy câu trả lời nên
+  - 808 phút có nghĩa là bây giờ nó là 13:28, vì vậy câu trả lời nên
         là 1 + 3 + 2 + 8 = 14.
 
 ***Thuật toán:***
@@ -4569,11 +4541,11 @@ int minutes = n % 60;
 
 Một số tỷ lệ sử dụng điện thoại có thể được mô tả như sau:
 
--   phí phút gọi đầu tiên là min1 xu,
+- phí phút gọi đầu tiên là min1 xu,
 
--   mỗi phút từ thứ 2 đến thứ 10 (đã bao gồm) chi phí là min2_10 xu
+- mỗi phút từ thứ 2 đến thứ 10 (đã bao gồm) chi phí là min2_10 xu
 
--   mỗi phút sau chi phí thứ 10 là min11 xu.
+- mỗi phút sau chi phí thứ 10 là min11 xu.
 
 Bạn có s xu trên tài khoản của bạn trước cuộc gọi. Thời lượng của cuộc
 gọi dài nhất (tính bằng phút được làm tròn xuống số nguyên gần nhất) mà
@@ -4586,12 +4558,12 @@ Với min1 = 3, min2_10 = 1, min11 = 2, Và s = 20, đầu ra phải là
 
 Đây là lý do tại sao:
 
--   chi phí phút đầu tiên 3 xu, để lại cho bạn 20 - 3 = 17 xu;
+- chi phí phút đầu tiên 3 xu, để lại cho bạn 20 - 3 = 17 xu;
 
--   tổng chi phí phút 2 đến 10là 1 \* 9 = 9, để bạn có thể nói chuyện
+- tổng chi phí phút 2 đến 10là 1 \* 9 = 9, để bạn có thể nói chuyện
     nhiều hơn 9 phút nữa và vẫn có 17 - 9 = 8 xu;
 
--   chi phí mỗi phút tiếp theo 2 xu, có nghĩa là bạn có thể nói chuyện
+- chi phí mỗi phút tiếp theo 2 xu, có nghĩa là bạn có thể nói chuyện
     thêm 8 / 2 = 4 phút nữa.
 
 Do đó, cuộc gọi dài nhất bạn có thể thực hiện là 1 + 9 + 4 = 14dài vài
@@ -4681,10 +4653,10 @@ cấp độ tiếp theo sau khi giết quái vật không.
 
 ***Ví dụ***
 
--   Với experience = 10, threshold = 15, Và reward = 5, đầu ra phải là
+- Với experience = 10, threshold = 15, Và reward = 5, đầu ra phải là
     **solution(experience, threshold, reward) = true**;
 
--   Với experience = 10, threshold = 15, Và reward = 4, đầu ra phải là
+- Với experience = 10, threshold = 15, Và reward = 4, đầu ra phải là
     **solution(experience, threshold, reward) = false**.
 
 ***Thuật toán:***
@@ -4719,15 +4691,15 @@ món, tức là không được mang 2 món đồ thứ nhất và 2 món đồ 
 
 ***Ví dụ***
 
--   Với value1 = 10, weight1 = 5, value2 = 6, weight2 = 4, Và maxW = 8,
+- Với value1 = 10, weight1 = 5, value2 = 6, weight2 = 4, Và maxW = 8,
     đầu ra phải là **solution(value1, weight1, value2, weight2, maxW) =
     10.** Bạn chỉ có thể mang vật phẩm đầu tiên.
 
--   Với value1 = 10, weight1 = 5, value2 = 6, weight2 = 4, Và maxW = 9,
+- Với value1 = 10, weight1 = 5, value2 = 6, weight2 = 4, Và maxW = 9,
     đầu ra phải là **solution(value1, weight1, value2, weight2, maxW) =
     16.** Bạn đủ khỏe để mang theo cả hai món đồ bên mình.
 
--   Với value1 = 5, weight1 = 3, value2 = 7, weight2 = 4, Và maxW = 6,
+- Với value1 = 5, weight1 = 3, value2 = 7, weight2 = 4, Và maxW = 6,
     đầu ra phải là ***solution(value1, weight1, value2, weight2, maxW) =
     7***. Bạn không thể lấy cả hai vật phẩm, nhưng bạn có thể lấy bất kỳ
     vật phẩm nào trong số chúng.
@@ -4854,27 +4826,27 @@ các số dài tùy ý và thực thi mãi mãi.
 
 ***Ví dụ***
 
--   Với a = 2 Và b = 6, đầu ra phải là **solution(a, b) = false;**
+- Với a = 2 Và b = 6, đầu ra phải là **solution(a, b) = false;**
 
--   Với a = 2 Và b = 3, đầu ra phải là **solution(a, b) = true.**
+- Với a = 2 Và b = 3, đầu ra phải là **solution(a, b) = true.**
 
 ***Nhận xét:***
 
 Ta thấy:
 
--   khi a \> b thì vòng lặp sẽ vô hạn bởi vì a tăng lên và b giảm đi sẽ
+- khi a \> b thì vòng lặp sẽ vô hạn bởi vì a tăng lên và b giảm đi sẽ
     không bao giờ thu được 2 giá trị bằng nhau để kết thúc vòng lặp.
 
--   khi a = b thì vòng lặp không được thực hiện.
+- khi a = b thì vòng lặp không được thực hiện.
 
--   khi a \< b:
+- khi a \< b:
 
-    -   Xét điều kiện dừng của vòng lặp: b - x = a + x hay 2x = b -- a;
+  - Xét điều kiện dừng của vòng lặp: b - x = a + x hay 2x = b -- a;
 
-        -   Nếu (b -- a) là một số chẵn thì chắc chắn tồn tại giá trị
+    - Nếu (b -- a) là một số chẵn thì chắc chắn tồn tại giá trị
             nguyên x thỏa mãn đẳng thức.
 
-        -   Ngược lại, nếu (b -- a) là một số lẻ thì không tồn tại giá
+    - Ngược lại, nếu (b -- a) là một số lẻ thì không tồn tại giá
             trị nguyên x thỏa mãn đẳng thức.
 
 Kết luận: Nếu a \> b hoặc (b -- a) là số lẻ thì xảy ra vòng lặp vô hạn.
@@ -4905,30 +4877,30 @@ với một trong bốn dấu hiệu: +, -, \* hoặc / để có được biể
 
 ***Ví dụ***
 
--   Với a = 2, b = 3, Và c = 5, đầu ra phải là **solution(a, b, c) =
+- Với a = 2, b = 3, Và c = 5, đầu ra phải là **solution(a, b, c) =
     true.**
 
-    -   chúng ta có thể thay thế \# với một + để có được 2 + 3 = 5, vì
+  - chúng ta có thể thay thế \# với một + để có được 2 + 3 = 5, vì
         vậy câu trả lời là true.
 
--   Với a = 8, b = 2, Và c = 4, đầu ra phải là **solution(a, b, c) =
+- Với a = 8, b = 2, Và c = 4, đầu ra phải là **solution(a, b, c) =
     true**.
 
-    -   chúng ta có thể thay thế \# với một / để có được 8 / 2 = 4, vì
+  - chúng ta có thể thay thế \# với một / để có được 8 / 2 = 4, vì
         vậy câu trả lời là true.
 
--   Với a = 8, b = 3, Và c = 2, đầu ra phải là **solution(a, b, c) =
+- Với a = 8, b = 3, Và c = 2, đầu ra phải là **solution(a, b, c) =
     false.**
 
-    -   8 + 3 = 11 ≠ 2;
+  - 8 + 3 = 11 ≠ 2;
 
-    -   8 - 3 = 5 ≠ 2;
+  - 8 - 3 = 5 ≠ 2;
 
-    -   8 \* 3 = 24 ≠ 2;
+  - 8 \* 3 = 24 ≠ 2;
 
-    -   8 / 3 = 2.(6) ≠ 2.
+  - 8 / 3 = 2.(6) ≠ 2.
 
-    -   Vì vậy, câu trả lời là false.
+  - Vì vậy, câu trả lời là false.
 
 ***Thuật toán:***
 
