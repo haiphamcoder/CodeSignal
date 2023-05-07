@@ -9,6 +9,6 @@ bool solution(int experience, int threshold, int reward)
 
 int main()
 {
-    cout << solution(10, 15, 5) << endl; // true
+    cout << solution(10, 15, 5) << endl;
     return 0;
 }
