@@ -10,7 +10,7 @@ Viết hàm trả về tổng của 2 số
 
 \- B1: Nhận vào 2 số a và b
 
-\- B2: Gán sum:=a+b
+\- B2: Gán sum := a + b
 
 \- B3: return sum và kết thúc.
 
@@ -29,9 +29,9 @@ Cho một năm, trả về thế kỷ của nó. Thế kỷ đầu tiên kéo d�
 
 ***Thuật toán:***
 
-\- B1: Nhận vào một năm bất kỳ (1\<=year\<=2005)
+\- B1: Nhận vào một năm bất kỳ (1 <= year <= 2005)
 
-\- B2: Gán century := (year+99) div 100
+\- B2: Gán century := (year + 99) div 100
 
 \- B3: return century
 
@@ -52,7 +52,7 @@ Cho một chuỗi, hãy kiểm tra xem đó có phải là palindrome (đối x�
 
 \- B1: Nhận vào một chuỗi bất kỳ: inputString
 
-\- B2: Gán str:=inputString
+\- B2: Gán str := inputString
 
 \- B3: Đảo ngược chuỗi str
 
@@ -79,11 +79,11 @@ Cho một mảng các số nguyên, tìm cặp phần tử liền kề có tích
 
 \- B1: Nhận vào một mảng các số nguyên: a
 
-\- B2: Gán largestProduct :=INT_MIN
+\- B2: Gán largestProduct := INT_MIN
 
-\- B3: For i=1 to a.length()-1 then
+\- B3: For i = 1 to a.length() - 1 then
 
-Gán largestProduct := max(largestProduct, a\[i\]\*a\[i-1\]);
+Gán largestProduct := max(largestProduct, a[i] * a[i - 1]);
 
 \- B4: return largestProduct và kết thúc.
 
@@ -121,16 +121,15 @@ Ta thấy, diện tích của 1-đa giác thú vị bằng 1 ô vuông.
 
 - ...
 
-- n-đa giác thú vị bằng (n-1)-đa giác thú vị + 4\*(n-1) ô vuông
+- n-đa giác thú vị bằng (n - 1)-đa giác thú vị + 4 * (n - 1) ô vuông
 
 Vì vậy, ở bài này, chúng ta có thể sử dụng đệ quy hoặc tìm ra công thức tổng quát cho diện tích của n-đa giác thú vị.
 
 Đặt S(n) là diện tích của n-đa giác thú vị
 
-\- Công thúc đệ quy: S(n) = S(n-1) + 4\*(n-1)
+\- Công thúc đệ quy: S(n) = S(n - 1) + 4 * (n - 1)
 
-\- Công thức tổng quát: S(n) = 1 + 4 + 8 + 12 + ... + 4\*(n-1) = 1 +
-2\*n\*(n-1)
+\- Công thức tổng quát: S(n) = 1 + 4 + 8 + 12 + ... + 4 \* (n - 1) = 1 + 2 \* n \* (n - 1)
 
 ***Thuật toán:***
 
@@ -138,15 +137,15 @@ Vì vậy, ở bài này, chúng ta có thể sử dụng đệ quy hoặc tìm 
 
 S(n):
 
-\- B1: Nếu n=1, thì trả về 1.
+\- B1: Nếu n = 1, thì trả về 1.
 
-\- B2: Ngược lại, trả về S(n-1) + 4\*(n-1)
+\- B2: Ngược lại, trả về S(n-1) + 4 \* (n - 1)
 
 ***Không sử dụng đệ quy:***
 
 \- B1: Nhận vào số n
 
-\- B2: Gán area := 1 + 2\*n\*(n-1)
+\- B2: Gán area := 1 + 2 \* n \* (n - 1)
 
 \- B3: return area và kết thúc.
 
@@ -173,9 +172,9 @@ Vì vậy, số lượng tối thiểu các bức tượng bổ sung cần thi�
 
 \- B1: Nhận vào mảng các số nguyên a là kích thước lần lượt của các bức tượng mà anh ấy nhận được
 
-\- B2: Gán maxSize = max(a\[ \]); minSize = min(a\[ \]), size = kích thước mảng a
+\- B2: Gán maxSize := max(a\[ \]); minSize := min(a\[ \]), size := kích thước mảng a
 
-\- B3: Gán ketqua = maxSize - minSize + 1 - size;
+\- B3: Gán ketqua := maxSize - minSize + 1 - size;
 
 \- B4: return ketqua
 
@@ -239,17 +238,17 @@ Ta dùng count để đếm số cặp phần tử liền kề mà a\[i\] \>= a\
 
 - B1: Nhận vào dãy số a
 
-- B2: Gán size := a.size(), count:=0
+- B2: Gán size := a.size(), count := 0
 
-- B3: Nếu size \< 3 thì trả về false và kết thúc chương trình. Nếu không, chuyển sang bước 4
+- B3: Nếu size < 3 thì trả về false và kết thúc chương trình. Nếu không, chuyển sang bước 4
 
-- B4: for i = 0 to size-1 then:
+- B4: for i := 0 to size - 1 then:
 
     Nếu a\[i\]\>=a\[i+1\] thì count:=count+1;
 
-    Nếu count\>1 thì trả về false và kết thúc chương trình.
+    Nếu count > 1 thì trả về false và kết thúc chương trình.
 
-    Nếu i\>0 và i\<size-2 và a\[i\]\>=a\[i+2\] và a\[i-1\]\>=a\[i+1\] thì trả về false và kết thúc chương trình.
+    Nếu i > 0 và i < size - 2 và a\[i\] = a\[i+2\] và a\[i-1\] >= a\[i+1\] thì trả về false và kết thúc chương trình.
 
 - B5: Trả về true và kết thúc chương trình.
 
@@ -299,11 +298,11 @@ Ví dụ: với trường hợp bên dưới thì solution(matrix) = 5 + 1 + 2 =
 
 - B2: Gán sum := 0
 
-- B3: for j=0 to col-1 then:
+- B3: for j := 0 to col - 1 then:
 
-    for i = 0 to row-1 then:
+    for i := 0 to row - 1 then:
 
-    Nếu A\[i\]\[j\] \> 0 thì sum := sum + a\[i\]\[j\];
+    Nếu A\[i\]\[j\] > 0 thì sum := sum + a\[i\]\[j\];
 
     Ngược lại, break;
 
@@ -339,76 +338,58 @@ int solution(vector<vector<int>> matrix)
 
 ### 9. allLongestStrings
 
-Cho một mảng các chuỗi, trả về một mảng khác chứa tất cả các chuỗi dài
-nhất của nó.
+Cho một mảng các chuỗi, trả về một mảng khác chứa tất cả các chuỗi dài nhất của nó.
 
 ***Thuật toán:***
 
 \- B1: Nhận vào một mảng các chuỗi S
 
-\- B2: Gán maxLength :=0;
+\- B2: Gán maxLength := 0;
 
 \- B3: Tạo một mảng các chuỗi result
 
-\- B4: for i = 0 to S.size()-1 then:
+\- B4: for i := 0 to S.size() - 1 then:
 
-Gán length := S\[i\].length()
+Gán length := S[i].length()
 
-Nếu length \> maxLength thì:
+Nếu length > maxLength thì:
 
 maxLength := length;
 
 Xóa tất cả các phần tử trong result
 
-Chèn S\[i\] vào result
+Chèn S[i] vào result
 
 Nếu length = maxLength thì:
 
-Chèn S\[i\] vào result
+Chèn S[i] vào result
 
 \- B5: Trả về mảng result và kết thúc.
 
 ***Mã C++:***
 
-vector\<string\> solution(vector\<string\> inputArray)
-
+```cpp
+vector<string> solution(vector<string> inputArray)
 {
-
-int maxLength = 0;
-
-vector\<string\> result;
-
-**for** (int i = 0; i \< inputArray.size(); i++)
-
-{
-
-int length = inputArray\[i\].length();
-
-**if** (length \> maxLength)
-
-{
-
-maxLength = length;
-
-result.clear();
-
-result.insert(result.end(), inputArray\[i\]);
-
+    int maxLength = 0;
+    vector<string> result;
+    for (int i = 0; i < inputArray.size(); i++)
+    {
+        int length = inputArray[i].length();
+        if (length > maxLength)
+        {
+            maxLength = length;
+            result.clear();
+            result.insert(result.end(), inputArray[i]);
+        }
+        else if (length == maxLength)
+        {
+            result.insert(result.end(), inputArray[i]);
+        }
+    }
+    return result;
 }
-
-**else** **if** (length == maxLength)
-
-{
-
-result.insert(result.end(), inputArray\[i\]);
-
-}
-
-}
-
-**return** result;
-
-}
+```
 
 ### 10. commonCharacterCount
 
