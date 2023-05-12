@@ -6,20 +6,9 @@ bool solution(bool young, bool beautiful, bool loved)
 {
     if (loved)
     {
-        if (young && beautiful)
-        {
-            return false;
-        }
-        return true;
+        return !(young && beautiful);
     }
-    else
-    {
-        if (young && beautiful)
-        {
-            return true;
-        }
-        return false;
-    }
+    return young && beautiful;
 }
 
 int main()
